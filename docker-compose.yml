@@ -26,10 +26,6 @@ services:
         container_name: grafana
         ports: 
             - ${GRAFANA_PORT}:${GRAFANA_PORT}
-        volumes:
-            - /var/lib/grafana
-            - /var/log/grafana
-            - /var/lib/grafana/plugins
         restart: always
         env_file:
             - .env
