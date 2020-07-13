@@ -9,9 +9,6 @@ services:
         restart: always
         env_file:
             - .env
-        networks:
-            - backend
-            - frontend
 
     telegraf:
         build: ./telegraf
@@ -23,18 +20,12 @@ services:
             - /proc:/hostfs/proc
         privileged: true
         restart: always
-        env_file:
-            - .env
-        networks: 
-            - backend
             
     grafana:
         build: ./grafana
         container_name: grafana
         ports: 
             - ${GRAFANA_PORT}:${GRAFANA_PORT}
-        links:
-            - influxdb
         volumes:
             - /var/lib/grafana
             - /var/log/grafana
@@ -42,9 +33,3 @@ services:
         restart: always
         env_file:
             - .env
-        networks:
-            - frontend
-
-networks:
-    backend:
-    frontend:
