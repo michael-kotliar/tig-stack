@@ -4,6 +4,8 @@ services:
     influxdb:
         build: ./influxdb
         container_name: influxdb
+        ports:
+            - "${STATSD_PORT}:8125"
         volumes:
             - ${INFLUXDB_DATA}:/var/lib/influxdb
         restart: always
@@ -25,7 +27,7 @@ services:
         build: ./grafana
         container_name: grafana
         ports: 
-            - ${GRAFANA_PORT}:${GRAFANA_PORT}
+            - "${GRAFANA_PORT}:${GRAFANA_PORT}"
         restart: always
         env_file:
             - .env
