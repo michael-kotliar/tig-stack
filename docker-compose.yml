@@ -4,10 +4,8 @@ services:
     influxdb:
         build: ./influxdb
         container_name: influxdb
-        ports:
-            - ${INFLUXDB_PORT}:${INFLUXDB_PORT}
         volumes:
-            - /var/lib/influxdb:/var/lib/influxdb
+            - ${INFLUXDB_DATA}:/var/lib/influxdb
         restart: always
         env_file:
             - .env

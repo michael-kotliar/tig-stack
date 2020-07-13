@@ -76,12 +76,12 @@ then
    -X POST -d '{
     "name":"'"${INFLUXDB_DATA_SOURCE}"'",
     "type":"influxdb",
-    "url":"http://'"${INFLUXDB_HOST}"':'"${INFLUXDB_PORT}"'",
+    "url":"http://influxdb:8086",
     "access":"proxy",
     "basicAuth":false,
-    "database": "'"${INFLUXDB_DATABASE}"'",
-    "user":"'"${INFLUXDB_ADMIN_USER}"'",
-    "password":"'"${INFLUXDB_ADMIN_PASSWORD}"'"}
+    "database": "metrics",
+    "user":"grafana",
+    "password":"grafana"}
   ' \
   http://${GRAFANA_USER}:${GRAFANA_PASSWORD}@${GRAFANA_URL}:${GRAFANA_PORT}/api/datasources
 else
