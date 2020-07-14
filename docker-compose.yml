@@ -1,27 +1,26 @@
 version: "3"
 
 services:
+    telegraf:
+        build: ./telegraf
+        container_name: telegraf
+        ports:
+            - "${STATSD_PORT}:8125/udp"
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - /proc:/hostfs/proc
+            - ${TELEGRAF_DATA}:/tmp/influx/
+        privileged: true
+        restart: always
+
     influxdb:
         build: ./influxdb
         container_name: influxdb
-        ports:
-            - "${STATSD_PORT}:8125"
         volumes:
             - ${INFLUXDB_DATA}:/var/lib/influxdb
         restart: always
         env_file:
             - .env
-
-    telegraf:
-        build: ./telegraf
-        container_name: telegraf
-        links:
-            - influxdb
-        volumes:
-            - /var/run/docker.sock:/var/run/docker.sock
-            - /proc:/hostfs/proc
-        privileged: true
-        restart: always
             
     grafana:
         build: ./grafana
