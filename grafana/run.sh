@@ -100,6 +100,7 @@ INFLUXDB_DATA_SOURCE_STATUS=`curl -s -L -i \
  -H "Content-Type: application/json" \
  -X GET http://admin:admin@grafana:3000/api/datasources/name/${INFLUXDB_DATA_SOURCE_WEB} | head -1 | awk '{print $2}'`
 
+
 # Check if $INFLUXDB_DATA_SOURCE exists
 if [ ${INFLUXDB_DATA_SOURCE_STATUS} != 200 ]
 then
