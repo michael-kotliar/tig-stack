@@ -1,6 +1,8 @@
 version: "3"
 
+
 services:
+
     telegraf:
         build: ./telegraf
         container_name: telegraf
@@ -8,10 +10,11 @@ services:
             - "${STATSD_PORT}:8125/udp"
         volumes:
             - /var/run/docker.sock:/var/run/docker.sock
-            - /proc:/hostfs/proc
             - ${TELEGRAF_DATA}:/tmp/influx/
         privileged: true
         restart: always
+        env_file:
+            - .env
 
     influxdb:
         build: ./influxdb
