@@ -90,23 +90,18 @@ exec grafana-server                                         \
 
 
 # Set new Data Source name
-INFLUXDB_DATA_SOURCE="Docker InfluxDB"
-INFLUXDB_DATA_SOURCE_WEB=`echo ${INFLUXDB_DATA_SOURCE} | sed 's/ /%20/g'`
-
+INFLUXDB_DATA_SOURCE="influxdb"
 
 # Check $INFLUXDB_DATA_SOURCE status
 INFLUXDB_DATA_SOURCE_STATUS=`curl -s -L -i \
  -H "Accept: application/json" \
  -H "Content-Type: application/json" \
- -X GET http://admin:admin@grafana:3000/api/datasources/name/${INFLUXDB_DATA_SOURCE_WEB} | head -1 | awk '{print $2}'`
-
+ -X GET http://admin:admin@grafana:3000/api/datasources/name/${INFLUXDB_DATA_SOURCE} | head -1 | awk '{print $2}'`
 
 # Check if $INFLUXDB_DATA_SOURCE exists
 if [ ${INFLUXDB_DATA_SOURCE_STATUS} != 200 ]
 then
   # If not exists, create one 
-  echo "Data Source: '"${INFLUXDB_DATA_SOURCE}"' not found in Grafana configuration"
-  echo "Creating Data Source: '"$INFLUXDB_DATA_SOURCE"'"
   curl -L -i \
    -H "Accept: application/json" \
    -H "Content-Type: application/json" \

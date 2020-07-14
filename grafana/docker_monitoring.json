@@ -1,8 +1,8 @@
 {
     "__inputs": [
       {
-        "name": "Docker InfluxDB",
-        "label": "Docker InfluxDB",
+        "name": "influxdb",
+        "label": "influxdb",
         "description": "",
         "type": "datasource",
         "pluginId": "influxdb",
@@ -63,7 +63,7 @@
           {
             "aliasColors": {},
             "bars": false,
-            "datasource": "Docker InfluxDB",
+            "datasource": "influxdb",
             "editable": true,
             "error": false,
             "fill": 1,
@@ -202,7 +202,7 @@
           {
             "aliasColors": {},
             "bars": false,
-            "datasource": "Docker InfluxDB",
+            "datasource": "influxdb",
             "editable": true,
             "error": false,
             "fill": 1,
@@ -518,7 +518,7 @@
           {
             "aliasColors": {},
             "bars": false,
-            "datasource": "Docker InfluxDB",
+            "datasource": "influxdb",
             "editable": true,
             "error": false,
             "fill": 1,
@@ -652,7 +652,7 @@
           {
             "aliasColors": {},
             "bars": false,
-            "datasource": "Docker InfluxDB",
+            "datasource": "influxdb",
             "editable": true,
             "error": false,
             "fill": 1,
@@ -815,7 +815,7 @@
               "rgba(237, 129, 40, 0.89)",
               "rgba(245, 54, 54, 0.9)"
             ],
-            "datasource": "Docker InfluxDB",
+            "datasource": "influxdb",
             "editable": true,
             "error": false,
             "format": "percent",
@@ -945,7 +945,7 @@
               "rgba(237, 129, 40, 0.89)",
               "rgba(245, 54, 54, 0.9)"
             ],
-            "datasource": "Docker InfluxDB",
+            "datasource": "influxdb",
             "editable": true,
             "error": false,
             "format": "none",
@@ -1074,7 +1074,7 @@
               "rgba(237, 129, 40, 0.89)",
               "rgba(50, 172, 45, 0.97)"
             ],
-            "datasource": "Docker InfluxDB",
+            "datasource": "influxdb",
             "editable": true,
             "error": false,
             "format": "none",
@@ -1205,7 +1205,7 @@
               "rgba(237, 129, 40, 0.89)",
               "rgba(50, 172, 45, 0.97)"
             ],
-            "datasource": "Docker InfluxDB",
+            "datasource": "influxdb",
             "editable": true,
             "error": false,
             "format": "none",
@@ -1319,7 +1319,7 @@
         "panels": [
           {
             "columns": [],
-            "datasource": "Docker InfluxDB",
+            "datasource": "influxdb",
             "editable": true,
             "error": false,
             "fontSize": "100%",
@@ -1461,7 +1461,7 @@
       "list": [
         {
           "current": {},
-          "datasource": "Docker InfluxDB",
+          "datasource": "influxdb",
           "hide": 0,
           "includeAll": false,
           "multi": false,
